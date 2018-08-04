@@ -15,10 +15,10 @@
     <jsp:body>
 
         <div class="container">
-            
+
             <a class="btn btn-primary" href="<c:url value="/genero/form"/> "  >Novo</a> 
 
-            <table style="width: 100%" class="table table-striped table-bordered" >
+            <table style="width: 100%" class="table table-striped table-bordered  table-hover" >
 
                 <thead>
                     <tr>
@@ -28,7 +28,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="genero" items="${generos}" >
+                    <c:forEach var="genero" items="${generos}">
 
                         <tr>
                             <td>
@@ -38,10 +38,23 @@
                                 ${genero.nome}
                             </td>
                             <td>
-                                
-                            </td>
-                        </tr>
+                                <form  action="<c:url value="/genero/${genero.id}"/>"
+                                       method="POST"
+                                       onsubmit="if(!confirm('Confirma a exclucao do resgisro?!'))
+                                                   return false;">
 
+                                        <button class="btn btn-danger" type="submit"
+                                                name="_method" value="DELETE">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+
+                                </form>
+                                
+
+                             </td>
+                            </tr>
+                            
+                            
                     </c:forEach>
                 </tbody>
 
