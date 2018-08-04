@@ -15,6 +15,8 @@
     <jsp:body>
 
         <div class="container">
+            
+            <a class="btn btn-primary" href="<c:url value="/genero/form"/> "  >Novo</a> 
 
             <table style="width: 100%" class="table table-striped table-bordered" >
 
@@ -36,7 +38,7 @@
                                 ${genero.nome}
                             </td>
                             <td>
-                                ----
+                                
                             </td>
                         </tr>
 
