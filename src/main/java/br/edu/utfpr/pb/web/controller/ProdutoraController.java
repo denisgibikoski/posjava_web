@@ -13,8 +13,8 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.validator.Validator;
 import br.com.caelum.vraptor.view.Results;
-import br.edu.utfpr.pb.web.model.Genero;
-import br.edu.utfpr.pb.web.repository.impl.GeneroRepositoryImpl;
+import br.edu.utfpr.pb.web.model.Produtora;
+import br.edu.utfpr.pb.web.repository.impl.ProdutoraRepositoryImpl;
 import javax.inject.Inject;
 import javax.validation.Valid;
 
@@ -23,26 +23,26 @@ import javax.validation.Valid;
  * @author denis
  */
 @Controller
-@Path("/genero")
+@Path("/produtora")
 //Nome de Pasta
-public class GeneroController {
+public class ProdutoraController {
 
     private Result result;
 
-    private GeneroRepositoryImpl generoRepositoryImpl;
+    private ProdutoraRepositoryImpl produtoraRepositoryImpl;
 
     private Validator validator;
 
     /**
      * @deprecated
      */
-    public GeneroController() {
+    public ProdutoraController() {
     }
 
     @Inject
-    public GeneroController(Result result, GeneroRepositoryImpl generoRepositoryImpl, Validator validator) {
+    public ProdutoraController(Result result, ProdutoraRepositoryImpl produtoraRepositoryImpl, Validator validator) {
         this.result = result;
-        this.generoRepositoryImpl = generoRepositoryImpl;
+        this.produtoraRepositoryImpl = produtoraRepositoryImpl;
         this.validator = validator;
     }
 
@@ -51,7 +51,7 @@ public class GeneroController {
     //Nome do arquivo
     public void list() {
 
-        result.include("generos", generoRepositoryImpl.findAll());
+        result.include("produtoras", produtoraRepositoryImpl.findAll());
 
     }
 
@@ -60,10 +60,10 @@ public class GeneroController {
     //Nome do arquivo
     public void form(Long id) {
         if (id != null) {
-            form(generoRepositoryImpl.findOne(id));
+            form(produtoraRepositoryImpl.findOne(id));
            
         }else{
-            form( new Genero());
+            form( new Produtora());
         }
         
         
@@ -72,28 +72,28 @@ public class GeneroController {
     @Post
     @Path(value = {"", "/"})
     //Nome do arquivo
-    public void salvar(@Valid Genero genero) {
+    public void salvar(@Valid Produtora produtora) {
 
-        validator.onErrorForwardTo(this).form(genero);
+        validator.onErrorForwardTo(this).form(produtora);
         try {
-            generoRepositoryImpl.save(genero);
-            result.use(Results.logic()).redirectTo(GeneroController.class).list();
+            produtoraRepositoryImpl.save(produtora);
+            result.use(Results.logic()).redirectTo(ProdutoraController.class).list();
         } catch (Exception e) {
-            result.use(Results.logic()).redirectTo(GeneroController.class).form(genero);
+            result.use(Results.logic()).redirectTo(ProdutoraController.class).form(produtora);
         }
 
     }
 
-    public void form(Genero genero) {
-        result.include("genero", genero);
+    public void form( Produtora produtora ) {
+        result.include("produtora", produtora);
 
     }
 
     @Delete
     @Path(value = "/{id}")
     public void delete(Long id) {
-        generoRepositoryImpl.remove(id);
-        result.use(Results.logic()).redirectTo(GeneroController.class).list();
+        produtoraRepositoryImpl.remove(id);
+        result.use(Results.logic()).redirectTo(ProdutoraController.class).list();
     }
     
     

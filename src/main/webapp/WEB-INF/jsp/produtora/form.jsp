@@ -1,3 +1,8 @@
+<%-- 
+    Document   : form
+    Created on : 04/08/2018, 16:20:11
+    Author     : denis
+--%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib tagdir="/WEB-INF/tags/layout/" prefix="utfpr" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -10,7 +15,7 @@
         <div class="container">
 
 
-            <form id="frm" action="<c:url value="/genero" />" method="POST" class="well span6" >
+            <form id="frm" action="<c:url value="/produtora" />" method="POST" class="well span6" >
                 <c:if test="${not empty errors}">
                     <div class="alert alert-danger">
                         <ul>
@@ -26,16 +31,16 @@
                 <div class="form-group" >
 
                     <label  for="id"  > Codigo:</label>
-                    <input  type="text" id="id" name="genero.id" class="form-control" readonly 
-                            value="${genero.id}"/>
+                    <input  type="text" id="id" name="produtora.id" class="form-control" readonly 
+                            value="${produtora.id}"/>
 
                 </div>
 
                 <div class="form-group" >
 
                     <label  for="nome"  > Nome:</label>
-                    <input  type="text" id="nome" name="genero.nome" class="form-control" 
-                            value="${genero.nome}"/>
+                    <input  type="text" id="nome" name="produtora.nome" class="form-control" 
+                            value="${produtora.nome}"/>
 
                 </div>
                 <button type="submit" class="btn btn-success" >Salvar</button>

@@ -1,8 +1,9 @@
 <%-- 
     Document   : list
-    Created on : 04/08/2018, 11:43:51
+    Created on : 04/08/2018, 16:19:03
     Author     : denis
 --%>
+
 
 <<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib tagdir="/WEB-INF/tags/layout/" prefix="utfpr" %>
@@ -16,7 +17,7 @@
 
         <div class="container">
 
-            <a class="btn btn-primary" href="<c:url value="/genero/form"/> "  >Novo</a> 
+            <a class="btn btn-primary" href="<c:url value="/produtora/form"/> "  >Novo</a> 
 
             <table style="width: 100%" class="table table-striped table-bordered  table-hover" >
 
@@ -28,23 +29,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="genero" items="${generos}">
+                    <c:forEach var="produtora" items="${produtoras}">
 
                         <tr>
                             <td>
-                                ${genero.id}
+                                ${produtora.id}
                             </td>
                             <td>
-                                ${genero.nome}
+                                ${produtora.nome}
                             </td>
                             <td>
-                                <form  action="<c:url value="/genero/${genero.id}"/>"
+                                <form  action="<c:url value="/produtora/${produtora.id}"/>"
                                        method="POST"
                                        onsubmit="if (!confirm('Confirma a exclucao do resgisro?!'))
                                                    return false;">
 
 
-                                    <a href="<c:url value="/genero/form/${genero.id}"/>"
+                                    <a href="<c:url value="/produtora/form/${produtora.id}"/>"
                                        class=" btn btn-info"> 
 
                                         <i class="fa fa-edit"></i></a>
