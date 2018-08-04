@@ -13,9 +13,9 @@
 
 
     <jsp:body>
-
+        <div class="container"
         <h1>Bem Vindo</h1>
-            
+        </div>   
     </jsp:body>
 
 

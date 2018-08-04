@@ -26,9 +26,12 @@ public class IndexController {
     }
     
     @Get
-    @Path(value = "/")
+    @Path(value = {"/"," /index"} )
     //Nome de Arquivo
     public void index(){
+        
+        
+        
         
     }
     
