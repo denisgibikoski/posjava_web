@@ -1,7 +1,5 @@
 package br.edu.utfpr.pb.web.repository.impl;
 
-public abstract class AbstractRepositoryImpl{}
-/*
 import br.edu.utfpr.pb.web.model.AbstractModel;
 import br.edu.utfpr.pb.web.repository.Repository;
 import java.io.Serializable;
@@ -13,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
+
 
 public abstract class AbstractRepositoryImpl<T extends AbstractModel, ID extends Serializable>
         implements Repository<T, ID> {
@@ -65,8 +64,8 @@ public abstract class AbstractRepositoryImpl<T extends AbstractModel, ID extends
     }
 
     @Override
-    public ID getTotalRecords() {
-        return (ID) entityManager.createQuery(
+    public Long getTotalRecords() {
+        return (Long) entityManager.createQuery(
                 String.format("select count(e.id) from %s e",
                         typeParameterClass.getName())).getSingleResult();
     }
@@ -98,4 +97,3 @@ public abstract class AbstractRepositoryImpl<T extends AbstractModel, ID extends
         return errors;
     }
 }
-*/
